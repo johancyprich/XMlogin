@@ -1,0 +1,157 @@
+﻿$default-fontstyle: Arial, Helvetica, sans-serif;
+$default-fontsize: 12pt;
+$default-fontlineheight: 1.2;
+
+body
+{
+	margin-top: 0;
+	margin-left: 0;
+	margin-right: 0;
+	background-color: white;
+	color: black;
+	font: normal 10pt/12pt $default-fontstyle;
+	line-height: 120%;
+}
+
+P
+{
+	font: normal 10pt/12pt $default-fontstyle;
+}
+
+$color-blue: #0098DA;
+$color-grey: #808080;
+$color-purple: #A8518A;
+$color-lightblue: #0098DA;
+
+
+/*** Container ************************************************************************************/
+
+.container
+{
+}
+
+.biglist
+{
+	font-size: 14pt;
+	margin-bottom: 10px;
+}
+
+.title
+{
+	.blue { color: $color-blue; }
+	.purple { color: $color-purple; }
+
+	font-size: $default-fontsize * 2.5;
+	font-weight: 800;
+}
+
+.subtitle
+{
+	.black { color: black; }
+	.blue { color: $color-blue; }
+	.grey { color: $color-grey; }
+	.red { color: red; }
+	font-size: 18pt;
+	font-weight: bold;
+}
+
+.login-label
+{
+	font-size: $default-fontsize;
+	font-weight: bold;
+}
+
+.link-label
+{
+	font-size: $default-fontsize;
+	font-weight: bold;
+	color: #0098db;
+}
+
+.text-separator
+{
+	font-size: larger;
+}
+
+.required-asterisk
+{
+	color: red;
+	font-size: larger;
+}
+
+/**************************************************************************************************/
+
+ul
+{
+	list-style-image: url('http://forms.dominionblue.com/XMlogin-staging/Assets/images/PurpleBullet.png');
+}
+
+/**************************************************************************************************/
+
+.specialty-center
+{
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.specialty-title
+{
+	font-size: 20pt;
+	font-weight: bold;
+	line-height: 110%;
+	color: $color-lightblue;
+}
+
+.specialty-subtitle
+{
+	font-weight: bold;
+	color: $color-lightblue;
+	text-align: center;
+}
+
+.specialty-button
+{
+	width: 80px;
+	padding-bottom: 5px;
+}
+
+
+/*** Shortcuts ************************************************************************************/
+
+.bold { font-weight: bold; }
+.grey { color: #808080; }
+.light-blue { color: $color-lightblue; }
+
+
+/*** Hyperlinks ***********************************************************************************/
+
+A
+{
+	text-decoration: none;
+
+	&:link { color: blue; }
+	&:visited { color: blue; }
+	&:active { color: blue; }
+	&:hover { color: red; text-decoration: underline; }
+}
+
+.quick-link
+{
+	&:link { color: red; }
+	&:visited { color: red; }
+	&:active { color: red; }
+	&:hover { color: red; text-decoration: none; }
+}
+
+
+/*** Debug ****************************************************************************************/
+
+.debug
+{
+	margin-top: 10px;
+	padding: 5px;
+	width: 100%;
+	color: white;
+	background-color: darkred;
+}

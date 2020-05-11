@@ -1,0 +1,10 @@
+﻿[
+  {
+    "outputFile": "Assets/css/site.css",
+    "inputFile": "Assets/css/site.scss"
+  },
+  {
+    "outputFile": "Assets/Templates/Wrapper/css/site.css",
+    "inputFile": "Assets/Templates/Wrapper/css/site.scss"
+  }
+]
