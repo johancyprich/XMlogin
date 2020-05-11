@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="uStoreWSAPI" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="uStoreWSAPI" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="uStoreWSAPI">
+      <s:element name="AddAddress">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="tns:Address" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Address">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ReturnObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="AddressID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="AddressTypeID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="DisplayName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PersonName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Company" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Zip" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="StateID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CountryID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CustomerID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="AddressReference" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="TaxRegistration" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ReturnObject" abstract="true" />
+      <s:element name="AddAddressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddAddressResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAddress">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="tns:Address" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateAddressResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAddress">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="addressId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAddressResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAddressResult" type="tns:Address" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAddressListByCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="customerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAddressListByCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAddressListByCustomerResult" type="tns:ArrayOfAddress" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAddress">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Address" nillable="true" type="tns:Address" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAddressListByUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAddressListByUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAddressListByUserResult" type="tns:ArrayOfAddress" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Address" nillable="true" type="tns:Address" />
+      <s:element name="ArrayOfAddress" nillable="true" type="tns:ArrayOfAddress" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AddAddressSoapIn">
+    <wsdl:part name="parameters" element="tns:AddAddress" />
+  </wsdl:message>
+  <wsdl:message name="AddAddressSoapOut">
+    <wsdl:part name="parameters" element="tns:AddAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAddressSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateAddress" />
+  </wsdl:message>
+  <wsdl:message name="UpdateAddressSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAddress" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAddressResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressListByCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAddressListByCustomer" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressListByCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAddressListByCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressListByUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAddressListByUser" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressListByUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAddressListByUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="addressId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressHttpGetOut">
+    <wsdl:part name="Body" element="tns:Address" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressListByCustomerHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="customerId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressListByCustomerHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAddress" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressListByUserHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressListByUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAddress" />
+  </wsdl:message>
+  <wsdl:portType name="AddressWSSoap">
+    <wsdl:operation name="AddAddress">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Adds the given address to the system</wsdl:documentation>
+      <wsdl:input message="tns:AddAddressSoapIn" />
+      <wsdl:output message="tns:AddAddressSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAddress">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates the given address.</wsdl:documentation>
+      <wsdl:input message="tns:UpdateAddressSoapIn" />
+      <wsdl:output message="tns:UpdateAddressSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddress">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the address with the given ID.</wsdl:documentation>
+      <wsdl:input message="tns:GetAddressSoapIn" />
+      <wsdl:output message="tns:GetAddressSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressListByCustomer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the list of address of the given customer.</wsdl:documentation>
+      <wsdl:input message="tns:GetAddressListByCustomerSoapIn" />
+      <wsdl:output message="tns:GetAddressListByCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressListByUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the list of address of the given user.</wsdl:documentation>
+      <wsdl:input message="tns:GetAddressListByUserSoapIn" />
+      <wsdl:output message="tns:GetAddressListByUserSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="AddressWSHttpGet">
+    <wsdl:operation name="GetAddress">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the address with the given ID.</wsdl:documentation>
+      <wsdl:input message="tns:GetAddressHttpGetIn" />
+      <wsdl:output message="tns:GetAddressHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressListByCustomer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the list of address of the given customer.</wsdl:documentation>
+      <wsdl:input message="tns:GetAddressListByCustomerHttpGetIn" />
+      <wsdl:output message="tns:GetAddressListByCustomerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressListByUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the list of address of the given user.</wsdl:documentation>
+      <wsdl:input message="tns:GetAddressListByUserHttpGetIn" />
+      <wsdl:output message="tns:GetAddressListByUserHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AddressWSSoap" type="tns:AddressWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddAddress">
+      <soap:operation soapAction="uStoreWSAPI/AddAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAddress">
+      <soap:operation soapAction="uStoreWSAPI/UpdateAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddress">
+      <soap:operation soapAction="uStoreWSAPI/GetAddress" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressListByCustomer">
+      <soap:operation soapAction="uStoreWSAPI/GetAddressListByCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressListByUser">
+      <soap:operation soapAction="uStoreWSAPI/GetAddressListByUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AddressWSSoap12" type="tns:AddressWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AddAddress">
+      <soap12:operation soapAction="uStoreWSAPI/AddAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAddress">
+      <soap12:operation soapAction="uStoreWSAPI/UpdateAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddress">
+      <soap12:operation soapAction="uStoreWSAPI/GetAddress" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressListByCustomer">
+      <soap12:operation soapAction="uStoreWSAPI/GetAddressListByCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressListByUser">
+      <soap12:operation soapAction="uStoreWSAPI/GetAddressListByUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AddressWSHttpGet" type="tns:AddressWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetAddress">
+      <http:operation location="/GetAddress" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressListByCustomer">
+      <http:operation location="/GetAddressListByCustomer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressListByUser">
+      <http:operation location="/GetAddressListByUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AddressWS">
+    <wsdl:port name="AddressWSSoap" binding="tns:AddressWSSoap">
+      <soap:address location="http://192.168.147.100/uStoreWSAPI/AddressWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AddressWSSoap12" binding="tns:AddressWSSoap12">
+      <soap12:address location="http://192.168.147.100/uStoreWSAPI/AddressWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AddressWSHttpGet" binding="tns:AddressWSHttpGet">
+      <http:address location="http://192.168.147.100/uStoreWSAPI/AddressWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

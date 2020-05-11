@@ -1,0 +1,1779 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="uStoreWSAPI" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="uStoreWSAPI" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="uStoreWSAPI">
+      <s:element name="GetUserByEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserByEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserByEmailResult" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="User">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:ReturnObject">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="UserID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Login" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreatedLoginSessionID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="CreatedDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="ModifiedLoginSessionID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ModifiedDate" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="StatusID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="ExternalID" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="MobileNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="FaxNumber" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="CompanyName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Department" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="JobTitle" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsActivated" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsLocked" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="AssignedToStoreID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="GenderID" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="BirthDay" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Custom1" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Custom2" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Custom3" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Custom4" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Custom5" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ReturnObject" abstract="true" />
+      <s:element name="GetUserByEmailAndStore">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="assignedToStoreId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserByEmailAndStoreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserByEmailAndStoreResult" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserResult" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserByExternalID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="externalID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserByExternalIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserByExternalIDResult" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidateUserResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateUserInStore">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="assignedToStoreID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ValidateUserInStoreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ValidateUserInStoreResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserByCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="customerId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserByCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserByCustomerResult" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="externalId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddCustomerResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="externalId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddUserResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUserInStore">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="externalId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="assignedToStoreId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUserInStoreResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddUserInStoreResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="externalId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCustomerResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="userId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="externalId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateUserDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="user" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserDetailsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetStoreAdministratorList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="storeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStoreAdministratorListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStoreAdministratorListResult" type="tns:ArrayOfUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="User" nillable="true" type="tns:User" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetStoreOperatorList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="storeId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStoreOperatorListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStoreOperatorListResult" type="tns:ArrayOfUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSuperUserList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSuperUserListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSuperUserListResult" type="tns:ArrayOfUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSingleSignonUrlToWelcomePage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="storeId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cultureId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="addToCartUrl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logoutUrl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cancelUrl" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="currencyId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSingleSignonUrlToWelcomePageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSingleSignonUrlToWelcomePageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSingleSignonUrlToProductGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="productGroupId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cultureId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="addToCartUrl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logoutUrl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cancelUrl" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="currencyId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSingleSignonUrlToProductGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSingleSignonUrlToProductGroupResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSingleSignonUrlToProductDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="productId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cultureId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="addToCartUrl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logoutUrl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cancelUrl" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="currencyId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSingleSignonUrlToProductDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSingleSignonUrlToProductDetailsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSingleSignonUrlToProductDetailsUsingExternalId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="storeId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="externalProductId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="cultureId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="addToCartUrl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logoutUrl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cancelUrl" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="currencyId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSingleSignonUrlToProductDetailsUsingExternalIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSingleSignonUrlToProductDetailsUsingExternalIdResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSingleSigonUrlToOrderWizard">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="productId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="orderProductId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cultureId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="addToCartUrl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logoutUrl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cancelUrl" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="currencyId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSingleSigonUrlToOrderWizardResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSingleSigonUrlToOrderWizardResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSingleSignonUrlToFinalizePage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="orderProductId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cultureId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="addToCartUrl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="logoutUrl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cancelUrl" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="currencyId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSingleSignonUrlToFinalizePageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSingleSignonUrlToFinalizePageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSingleSignOnUrl">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userPassword" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="storeId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="productId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cultureId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="logoutUrl" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSingleSignOnUrlResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSingleSignOnUrlResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MergeUserData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fromUserId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="toUserId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="storeId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="cultureId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MergeUserDataResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="User" nillable="true" type="tns:User" />
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="int" type="s:int" />
+      <s:element name="ArrayOfUser" nillable="true" type="tns:ArrayOfUser" />
+      <s:element name="string" nillable="true" type="s:string" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetUserByEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserByEmail" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByEmailAndStoreSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserByEmailAndStore" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByEmailAndStoreSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserByEmailAndStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="GetUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByExternalIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserByExternalID" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByExternalIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserByExternalIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateUserSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateUser" />
+  </wsdl:message>
+  <wsdl:message name="ValidateUserSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="ValidateUserInStoreSoapIn">
+    <wsdl:part name="parameters" element="tns:ValidateUserInStore" />
+  </wsdl:message>
+  <wsdl:message name="ValidateUserInStoreSoapOut">
+    <wsdl:part name="parameters" element="tns:ValidateUserInStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserByCustomer" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserByCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:AddCustomer" />
+  </wsdl:message>
+  <wsdl:message name="AddCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:AddCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddUserSoapIn">
+    <wsdl:part name="parameters" element="tns:AddUser" />
+  </wsdl:message>
+  <wsdl:message name="AddUserSoapOut">
+    <wsdl:part name="parameters" element="tns:AddUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddUserInStoreSoapIn">
+    <wsdl:part name="parameters" element="tns:AddUserInStore" />
+  </wsdl:message>
+  <wsdl:message name="AddUserInStoreSoapOut">
+    <wsdl:part name="parameters" element="tns:AddUserInStoreResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCustomer" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUserDetails" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUserDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStoreAdministratorListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStoreAdministratorList" />
+  </wsdl:message>
+  <wsdl:message name="GetStoreAdministratorListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStoreAdministratorListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStoreOperatorListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStoreOperatorList" />
+  </wsdl:message>
+  <wsdl:message name="GetStoreOperatorListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStoreOperatorListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSuperUserListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSuperUserList" />
+  </wsdl:message>
+  <wsdl:message name="GetSuperUserListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSuperUserListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSignonUrlToWelcomePageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSingleSignonUrlToWelcomePage" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSignonUrlToWelcomePageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSingleSignonUrlToWelcomePageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSignonUrlToProductGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSingleSignonUrlToProductGroup" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSignonUrlToProductGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSingleSignonUrlToProductGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSignonUrlToProductDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSingleSignonUrlToProductDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSignonUrlToProductDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSingleSignonUrlToProductDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSignonUrlToProductDetailsUsingExternalIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSingleSignonUrlToProductDetailsUsingExternalId" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSignonUrlToProductDetailsUsingExternalIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSingleSignonUrlToProductDetailsUsingExternalIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSigonUrlToOrderWizardSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSingleSigonUrlToOrderWizard" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSigonUrlToOrderWizardSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSingleSigonUrlToOrderWizardResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSignonUrlToFinalizePageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSingleSignonUrlToFinalizePage" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSignonUrlToFinalizePageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSingleSignonUrlToFinalizePageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSignOnUrlSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSingleSignOnUrl" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSignOnUrlSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSingleSignOnUrlResponse" />
+  </wsdl:message>
+  <wsdl:message name="MergeUserDataSoapIn">
+    <wsdl:part name="parameters" element="tns:MergeUserData" />
+  </wsdl:message>
+  <wsdl:message name="MergeUserDataSoapOut">
+    <wsdl:part name="parameters" element="tns:MergeUserDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByEmailHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="email" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByEmailHttpGetOut">
+    <wsdl:part name="Body" element="tns:User" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByEmailAndStoreHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="assignedToStoreId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByEmailAndStoreHttpGetOut">
+    <wsdl:part name="Body" element="tns:User" />
+  </wsdl:message>
+  <wsdl:message name="GetUserHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="userId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:User" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByExternalIDHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="externalID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByExternalIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:User" />
+  </wsdl:message>
+  <wsdl:message name="ValidateUserHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="userPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidateUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="ValidateUserInStoreHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="userPassword" type="s:string" />
+    <wsdl:part name="assignedToStoreID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ValidateUserInStoreHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByCustomerHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="customerId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByCustomerHttpGetOut">
+    <wsdl:part name="Body" element="tns:User" />
+  </wsdl:message>
+  <wsdl:message name="AddCustomerHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firstName" type="s:string" />
+    <wsdl:part name="lastName" type="s:string" />
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="userPassword" type="s:string" />
+    <wsdl:part name="externalId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddCustomerHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="AddUserHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firstName" type="s:string" />
+    <wsdl:part name="lastName" type="s:string" />
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="userPassword" type="s:string" />
+    <wsdl:part name="externalId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="AddUserInStoreHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="firstName" type="s:string" />
+    <wsdl:part name="lastName" type="s:string" />
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="userPassword" type="s:string" />
+    <wsdl:part name="externalId" type="s:string" />
+    <wsdl:part name="assignedToStoreId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="AddUserInStoreHttpGetOut">
+    <wsdl:part name="Body" element="tns:int" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="firstName" type="s:string" />
+    <wsdl:part name="lastName" type="s:string" />
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="userPassword" type="s:string" />
+    <wsdl:part name="externalId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerHttpGetOut" />
+  <wsdl:message name="UpdateUserHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="userId" type="s:string" />
+    <wsdl:part name="firstName" type="s:string" />
+    <wsdl:part name="lastName" type="s:string" />
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="userPassword" type="s:string" />
+    <wsdl:part name="externalId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserHttpGetOut" />
+  <wsdl:message name="GetStoreAdministratorListHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="storeId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetStoreAdministratorListHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfUser" />
+  </wsdl:message>
+  <wsdl:message name="GetStoreOperatorListHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="storeId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetStoreOperatorListHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfUser" />
+  </wsdl:message>
+  <wsdl:message name="GetSuperUserListHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSuperUserListHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfUser" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSignonUrlToWelcomePageHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="storeId" type="s:string" />
+    <wsdl:part name="cultureId" type="s:string" />
+    <wsdl:part name="addToCartUrl" type="s:string" />
+    <wsdl:part name="logoutUrl" type="s:string" />
+    <wsdl:part name="cancelUrl" type="s:string" />
+    <wsdl:part name="currencyId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSignonUrlToWelcomePageHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSignonUrlToProductGroupHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="productGroupId" type="s:string" />
+    <wsdl:part name="cultureId" type="s:string" />
+    <wsdl:part name="addToCartUrl" type="s:string" />
+    <wsdl:part name="logoutUrl" type="s:string" />
+    <wsdl:part name="cancelUrl" type="s:string" />
+    <wsdl:part name="currencyId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSignonUrlToProductGroupHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSignonUrlToProductDetailsHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="productId" type="s:string" />
+    <wsdl:part name="cultureId" type="s:string" />
+    <wsdl:part name="addToCartUrl" type="s:string" />
+    <wsdl:part name="logoutUrl" type="s:string" />
+    <wsdl:part name="cancelUrl" type="s:string" />
+    <wsdl:part name="currencyId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSignonUrlToProductDetailsHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSignonUrlToProductDetailsUsingExternalIdHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="storeId" type="s:string" />
+    <wsdl:part name="externalProductId" type="s:string" />
+    <wsdl:part name="cultureId" type="s:string" />
+    <wsdl:part name="addToCartUrl" type="s:string" />
+    <wsdl:part name="logoutUrl" type="s:string" />
+    <wsdl:part name="cancelUrl" type="s:string" />
+    <wsdl:part name="currencyId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSignonUrlToProductDetailsUsingExternalIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSigonUrlToOrderWizardHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="productId" type="s:string" />
+    <wsdl:part name="orderProductId" type="s:string" />
+    <wsdl:part name="cultureId" type="s:string" />
+    <wsdl:part name="addToCartUrl" type="s:string" />
+    <wsdl:part name="logoutUrl" type="s:string" />
+    <wsdl:part name="cancelUrl" type="s:string" />
+    <wsdl:part name="currencyId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSigonUrlToOrderWizardHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSignonUrlToFinalizePageHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="orderProductId" type="s:string" />
+    <wsdl:part name="cultureId" type="s:string" />
+    <wsdl:part name="addToCartUrl" type="s:string" />
+    <wsdl:part name="logoutUrl" type="s:string" />
+    <wsdl:part name="cancelUrl" type="s:string" />
+    <wsdl:part name="currencyId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSignonUrlToFinalizePageHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSignOnUrlHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="email" type="s:string" />
+    <wsdl:part name="userPassword" type="s:string" />
+    <wsdl:part name="storeId" type="s:string" />
+    <wsdl:part name="productId" type="s:string" />
+    <wsdl:part name="cultureId" type="s:string" />
+    <wsdl:part name="logoutUrl" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleSignOnUrlHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="MergeUserDataHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+    <wsdl:part name="password" type="s:string" />
+    <wsdl:part name="fromUserId" type="s:string" />
+    <wsdl:part name="toUserId" type="s:string" />
+    <wsdl:part name="storeId" type="s:string" />
+    <wsdl:part name="cultureId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="MergeUserDataHttpGetOut" />
+  <wsdl:portType name="UserWSSoap">
+    <wsdl:operation name="GetUserByEmail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the data of the user, which is assigned to entire system (all stores, according to the given login email.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserByEmailSoapIn" />
+      <wsdl:output message="tns:GetUserByEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByEmailAndStore">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the data of the user, which is assigned to the given store, according to the given login email.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserByEmailAndStoreSoapIn" />
+      <wsdl:output message="tns:GetUserByEmailAndStoreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the data of the given user.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserSoapIn" />
+      <wsdl:output message="tns:GetUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByExternalID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the data of the user by given external ID.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserByExternalIDSoapIn" />
+      <wsdl:output message="tns:GetUserByExternalIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Checks if a user with the given username and password exists.</wsdl:documentation>
+      <wsdl:input message="tns:ValidateUserSoapIn" />
+      <wsdl:output message="tns:ValidateUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUserInStore">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Checks whether a user with the given email address (login) and password, when the login is unique in given Store, exists.</wsdl:documentation>
+      <wsdl:input message="tns:ValidateUserInStoreSoapIn" />
+      <wsdl:output message="tns:ValidateUserInStoreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByCustomer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the user data of the given customer.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserByCustomerSoapIn" />
+      <wsdl:output message="tns:GetUserByCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCustomer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates a new user of Customer type with the given details.</wsdl:documentation>
+      <wsdl:input message="tns:AddCustomerSoapIn" />
+      <wsdl:output message="tns:AddCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates a new user with the given details and globally unique email address.</wsdl:documentation>
+      <wsdl:input message="tns:AddUserSoapIn" />
+      <wsdl:output message="tns:AddUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUserInStore">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates a new user with the given details and assigns it to a given store.</wsdl:documentation>
+      <wsdl:input message="tns:AddUserInStoreSoapIn" />
+      <wsdl:output message="tns:AddUserInStoreSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates details of the user with the given ID</wsdl:documentation>
+      <wsdl:input message="tns:UpdateCustomerSoapIn" />
+      <wsdl:output message="tns:UpdateCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates details of the user with the given ID</wsdl:documentation>
+      <wsdl:input message="tns:UpdateUserSoapIn" />
+      <wsdl:output message="tns:UpdateUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserDetails">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates the details of the user. The ID of the user and the data to update are provided by the instance of the uStoreAPI.User object</wsdl:documentation>
+      <wsdl:input message="tns:UpdateUserDetailsSoapIn" />
+      <wsdl:output message="tns:UpdateUserDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreAdministratorList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the list of users who are assigned the role of Administrator of the given Store.</wsdl:documentation>
+      <wsdl:input message="tns:GetStoreAdministratorListSoapIn" />
+      <wsdl:output message="tns:GetStoreAdministratorListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreOperatorList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the list of users who are assigned the role of Operator of the given Store.</wsdl:documentation>
+      <wsdl:input message="tns:GetStoreOperatorListSoapIn" />
+      <wsdl:output message="tns:GetStoreOperatorListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSuperUserList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the list of users who are assigned the role of Superuser.</wsdl:documentation>
+      <wsdl:input message="tns:GetSuperUserListSoapIn" />
+      <wsdl:output message="tns:GetSuperUserListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignonUrlToWelcomePage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an encrypted Single Sign on URL for landing in the Welcome page of the given store using the given culture.</wsdl:documentation>
+      <wsdl:input message="tns:GetSingleSignonUrlToWelcomePageSoapIn" />
+      <wsdl:output message="tns:GetSingleSignonUrlToWelcomePageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignonUrlToProductGroup">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an encrypted Single Sign on URL for landing in the Product List page of the given product group.</wsdl:documentation>
+      <wsdl:input message="tns:GetSingleSignonUrlToProductGroupSoapIn" />
+      <wsdl:output message="tns:GetSingleSignonUrlToProductGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignonUrlToProductDetails">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an encrypted Single Sign on URL for landing in the Product Details page of the given product.</wsdl:documentation>
+      <wsdl:input message="tns:GetSingleSignonUrlToProductDetailsSoapIn" />
+      <wsdl:output message="tns:GetSingleSignonUrlToProductDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignonUrlToProductDetailsUsingExternalId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an encrypted Single Sign on URL for landing in the Product Details page of the given product using the given culture.</wsdl:documentation>
+      <wsdl:input message="tns:GetSingleSignonUrlToProductDetailsUsingExternalIdSoapIn" />
+      <wsdl:output message="tns:GetSingleSignonUrlToProductDetailsUsingExternalIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSigonUrlToOrderWizard">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an encrypted Single Sign on URL for landing in the first page of the order wizard with the given details.</wsdl:documentation>
+      <wsdl:input message="tns:GetSingleSigonUrlToOrderWizardSoapIn" />
+      <wsdl:output message="tns:GetSingleSigonUrlToOrderWizardSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignonUrlToFinalizePage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an encrypted Single Sign on URL for landing in the Finalize page with the given details.</wsdl:documentation>
+      <wsdl:input message="tns:GetSingleSignonUrlToFinalizePageSoapIn" />
+      <wsdl:output message="tns:GetSingleSignonUrlToFinalizePageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignOnUrl">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obsolete. Use new GetSingleSignonUrlTo... services. Returns an encrypted Single Sign on URL with the given details.</wsdl:documentation>
+      <wsdl:input message="tns:GetSingleSignOnUrlSoapIn" />
+      <wsdl:output message="tns:GetSingleSignOnUrlSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MergeUserData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Moves Cart items (including Drafts), created Orders, uploaded Recipient Lists and images from a source user (for example, Anonymous user) to a target user (for example, Registered User).</wsdl:documentation>
+      <wsdl:input message="tns:MergeUserDataSoapIn" />
+      <wsdl:output message="tns:MergeUserDataSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="UserWSHttpGet">
+    <wsdl:operation name="GetUserByEmail">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the data of the user, which is assigned to entire system (all stores, according to the given login email.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserByEmailHttpGetIn" />
+      <wsdl:output message="tns:GetUserByEmailHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByEmailAndStore">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the data of the user, which is assigned to the given store, according to the given login email.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserByEmailAndStoreHttpGetIn" />
+      <wsdl:output message="tns:GetUserByEmailAndStoreHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the data of the given user.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserHttpGetIn" />
+      <wsdl:output message="tns:GetUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByExternalID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the data of the user by given external ID.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserByExternalIDHttpGetIn" />
+      <wsdl:output message="tns:GetUserByExternalIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Checks if a user with the given username and password exists.</wsdl:documentation>
+      <wsdl:input message="tns:ValidateUserHttpGetIn" />
+      <wsdl:output message="tns:ValidateUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUserInStore">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Checks whether a user with the given email address (login) and password, when the login is unique in given Store, exists.</wsdl:documentation>
+      <wsdl:input message="tns:ValidateUserInStoreHttpGetIn" />
+      <wsdl:output message="tns:ValidateUserInStoreHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByCustomer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the user data of the given customer.</wsdl:documentation>
+      <wsdl:input message="tns:GetUserByCustomerHttpGetIn" />
+      <wsdl:output message="tns:GetUserByCustomerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddCustomer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates a new user of Customer type with the given details.</wsdl:documentation>
+      <wsdl:input message="tns:AddCustomerHttpGetIn" />
+      <wsdl:output message="tns:AddCustomerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates a new user with the given details and globally unique email address.</wsdl:documentation>
+      <wsdl:input message="tns:AddUserHttpGetIn" />
+      <wsdl:output message="tns:AddUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUserInStore">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Creates a new user with the given details and assigns it to a given store.</wsdl:documentation>
+      <wsdl:input message="tns:AddUserInStoreHttpGetIn" />
+      <wsdl:output message="tns:AddUserInStoreHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates details of the user with the given ID</wsdl:documentation>
+      <wsdl:input message="tns:UpdateCustomerHttpGetIn" />
+      <wsdl:output message="tns:UpdateCustomerHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Updates details of the user with the given ID</wsdl:documentation>
+      <wsdl:input message="tns:UpdateUserHttpGetIn" />
+      <wsdl:output message="tns:UpdateUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreAdministratorList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the list of users who are assigned the role of Administrator of the given Store.</wsdl:documentation>
+      <wsdl:input message="tns:GetStoreAdministratorListHttpGetIn" />
+      <wsdl:output message="tns:GetStoreAdministratorListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreOperatorList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the list of users who are assigned the role of Operator of the given Store.</wsdl:documentation>
+      <wsdl:input message="tns:GetStoreOperatorListHttpGetIn" />
+      <wsdl:output message="tns:GetStoreOperatorListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSuperUserList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the list of users who are assigned the role of Superuser.</wsdl:documentation>
+      <wsdl:input message="tns:GetSuperUserListHttpGetIn" />
+      <wsdl:output message="tns:GetSuperUserListHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignonUrlToWelcomePage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an encrypted Single Sign on URL for landing in the Welcome page of the given store using the given culture.</wsdl:documentation>
+      <wsdl:input message="tns:GetSingleSignonUrlToWelcomePageHttpGetIn" />
+      <wsdl:output message="tns:GetSingleSignonUrlToWelcomePageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignonUrlToProductGroup">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an encrypted Single Sign on URL for landing in the Product List page of the given product group.</wsdl:documentation>
+      <wsdl:input message="tns:GetSingleSignonUrlToProductGroupHttpGetIn" />
+      <wsdl:output message="tns:GetSingleSignonUrlToProductGroupHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignonUrlToProductDetails">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an encrypted Single Sign on URL for landing in the Product Details page of the given product.</wsdl:documentation>
+      <wsdl:input message="tns:GetSingleSignonUrlToProductDetailsHttpGetIn" />
+      <wsdl:output message="tns:GetSingleSignonUrlToProductDetailsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignonUrlToProductDetailsUsingExternalId">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an encrypted Single Sign on URL for landing in the Product Details page of the given product using the given culture.</wsdl:documentation>
+      <wsdl:input message="tns:GetSingleSignonUrlToProductDetailsUsingExternalIdHttpGetIn" />
+      <wsdl:output message="tns:GetSingleSignonUrlToProductDetailsUsingExternalIdHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSigonUrlToOrderWizard">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an encrypted Single Sign on URL for landing in the first page of the order wizard with the given details.</wsdl:documentation>
+      <wsdl:input message="tns:GetSingleSigonUrlToOrderWizardHttpGetIn" />
+      <wsdl:output message="tns:GetSingleSigonUrlToOrderWizardHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignonUrlToFinalizePage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns an encrypted Single Sign on URL for landing in the Finalize page with the given details.</wsdl:documentation>
+      <wsdl:input message="tns:GetSingleSignonUrlToFinalizePageHttpGetIn" />
+      <wsdl:output message="tns:GetSingleSignonUrlToFinalizePageHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignOnUrl">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Obsolete. Use new GetSingleSignonUrlTo... services. Returns an encrypted Single Sign on URL with the given details.</wsdl:documentation>
+      <wsdl:input message="tns:GetSingleSignOnUrlHttpGetIn" />
+      <wsdl:output message="tns:GetSingleSignOnUrlHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MergeUserData">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Moves Cart items (including Drafts), created Orders, uploaded Recipient Lists and images from a source user (for example, Anonymous user) to a target user (for example, Registered User).</wsdl:documentation>
+      <wsdl:input message="tns:MergeUserDataHttpGetIn" />
+      <wsdl:output message="tns:MergeUserDataHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UserWSSoap" type="tns:UserWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUserByEmail">
+      <soap:operation soapAction="uStoreWSAPI/GetUserByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByEmailAndStore">
+      <soap:operation soapAction="uStoreWSAPI/GetUserByEmailAndStore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="uStoreWSAPI/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByExternalID">
+      <soap:operation soapAction="uStoreWSAPI/GetUserByExternalID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <soap:operation soapAction="uStoreWSAPI/ValidateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUserInStore">
+      <soap:operation soapAction="uStoreWSAPI/ValidateUserInStore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByCustomer">
+      <soap:operation soapAction="uStoreWSAPI/GetUserByCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCustomer">
+      <soap:operation soapAction="uStoreWSAPI/AddCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <soap:operation soapAction="uStoreWSAPI/AddUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserInStore">
+      <soap:operation soapAction="uStoreWSAPI/AddUserInStore" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <soap:operation soapAction="uStoreWSAPI/UpdateCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="uStoreWSAPI/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserDetails">
+      <soap:operation soapAction="uStoreWSAPI/UpdateUserDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreAdministratorList">
+      <soap:operation soapAction="uStoreWSAPI/GetStoreAdministratorList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreOperatorList">
+      <soap:operation soapAction="uStoreWSAPI/GetStoreOperatorList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSuperUserList">
+      <soap:operation soapAction="uStoreWSAPI/GetSuperUserList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignonUrlToWelcomePage">
+      <soap:operation soapAction="uStoreWSAPI/GetSingleSignonUrlToWelcomePage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignonUrlToProductGroup">
+      <soap:operation soapAction="uStoreWSAPI/GetSingleSignonUrlToProductGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignonUrlToProductDetails">
+      <soap:operation soapAction="uStoreWSAPI/GetSingleSignonUrlToProductDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignonUrlToProductDetailsUsingExternalId">
+      <soap:operation soapAction="uStoreWSAPI/GetSingleSignonUrlToProductDetailsUsingExternalId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSigonUrlToOrderWizard">
+      <soap:operation soapAction="uStoreWSAPI/GetSingleSigonUrlToOrderWizard" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignonUrlToFinalizePage">
+      <soap:operation soapAction="uStoreWSAPI/GetSingleSignonUrlToFinalizePage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignOnUrl">
+      <soap:operation soapAction="uStoreWSAPI/GetSingleSignOnUrl" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MergeUserData">
+      <soap:operation soapAction="uStoreWSAPI/MergeUserData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UserWSSoap12" type="tns:UserWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUserByEmail">
+      <soap12:operation soapAction="uStoreWSAPI/GetUserByEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByEmailAndStore">
+      <soap12:operation soapAction="uStoreWSAPI/GetUserByEmailAndStore" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap12:operation soapAction="uStoreWSAPI/GetUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByExternalID">
+      <soap12:operation soapAction="uStoreWSAPI/GetUserByExternalID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <soap12:operation soapAction="uStoreWSAPI/ValidateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUserInStore">
+      <soap12:operation soapAction="uStoreWSAPI/ValidateUserInStore" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByCustomer">
+      <soap12:operation soapAction="uStoreWSAPI/GetUserByCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCustomer">
+      <soap12:operation soapAction="uStoreWSAPI/AddCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <soap12:operation soapAction="uStoreWSAPI/AddUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserInStore">
+      <soap12:operation soapAction="uStoreWSAPI/AddUserInStore" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <soap12:operation soapAction="uStoreWSAPI/UpdateCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap12:operation soapAction="uStoreWSAPI/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUserDetails">
+      <soap12:operation soapAction="uStoreWSAPI/UpdateUserDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreAdministratorList">
+      <soap12:operation soapAction="uStoreWSAPI/GetStoreAdministratorList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreOperatorList">
+      <soap12:operation soapAction="uStoreWSAPI/GetStoreOperatorList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSuperUserList">
+      <soap12:operation soapAction="uStoreWSAPI/GetSuperUserList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignonUrlToWelcomePage">
+      <soap12:operation soapAction="uStoreWSAPI/GetSingleSignonUrlToWelcomePage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignonUrlToProductGroup">
+      <soap12:operation soapAction="uStoreWSAPI/GetSingleSignonUrlToProductGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignonUrlToProductDetails">
+      <soap12:operation soapAction="uStoreWSAPI/GetSingleSignonUrlToProductDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignonUrlToProductDetailsUsingExternalId">
+      <soap12:operation soapAction="uStoreWSAPI/GetSingleSignonUrlToProductDetailsUsingExternalId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSigonUrlToOrderWizard">
+      <soap12:operation soapAction="uStoreWSAPI/GetSingleSigonUrlToOrderWizard" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignonUrlToFinalizePage">
+      <soap12:operation soapAction="uStoreWSAPI/GetSingleSignonUrlToFinalizePage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignOnUrl">
+      <soap12:operation soapAction="uStoreWSAPI/GetSingleSignOnUrl" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MergeUserData">
+      <soap12:operation soapAction="uStoreWSAPI/MergeUserData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UserWSHttpGet" type="tns:UserWSHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetUserByEmail">
+      <http:operation location="/GetUserByEmail" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByEmailAndStore">
+      <http:operation location="/GetUserByEmailAndStore" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <http:operation location="/GetUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByExternalID">
+      <http:operation location="/GetUserByExternalID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUser">
+      <http:operation location="/ValidateUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUserInStore">
+      <http:operation location="/ValidateUserInStore" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByCustomer">
+      <http:operation location="/GetUserByCustomer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCustomer">
+      <http:operation location="/AddCustomer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <http:operation location="/AddUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUserInStore">
+      <http:operation location="/AddUserInStore" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomer">
+      <http:operation location="/UpdateCustomer" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <http:operation location="/UpdateUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreAdministratorList">
+      <http:operation location="/GetStoreAdministratorList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStoreOperatorList">
+      <http:operation location="/GetStoreOperatorList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSuperUserList">
+      <http:operation location="/GetSuperUserList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignonUrlToWelcomePage">
+      <http:operation location="/GetSingleSignonUrlToWelcomePage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignonUrlToProductGroup">
+      <http:operation location="/GetSingleSignonUrlToProductGroup" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignonUrlToProductDetails">
+      <http:operation location="/GetSingleSignonUrlToProductDetails" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignonUrlToProductDetailsUsingExternalId">
+      <http:operation location="/GetSingleSignonUrlToProductDetailsUsingExternalId" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSigonUrlToOrderWizard">
+      <http:operation location="/GetSingleSigonUrlToOrderWizard" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignonUrlToFinalizePage">
+      <http:operation location="/GetSingleSignonUrlToFinalizePage" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleSignOnUrl">
+      <http:operation location="/GetSingleSignOnUrl" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MergeUserData">
+      <http:operation location="/MergeUserData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserWS">
+    <wsdl:port name="UserWSSoap" binding="tns:UserWSSoap">
+      <soap:address location="http://192.168.147.100/uStoreWSAPI/UserWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UserWSSoap12" binding="tns:UserWSSoap12">
+      <soap12:address location="http://192.168.147.100/uStoreWSAPI/UserWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UserWSHttpGet" binding="tns:UserWSHttpGet">
+      <http:address location="http://192.168.147.100/uStoreWSAPI/UserWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
